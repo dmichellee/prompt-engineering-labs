@@ -59,6 +59,11 @@ with col3:
     
     if process_button:
         with st.spinner("Running..."):
-            response_content = glib.get_text_response(model_id=selected_model, temperature=0.0, system_prompt=system_prompt_text, user_prompt=user_prompt_text, context=context_text)
+            bedrock_response = glib.get_text_response(model_id=selected_model, temperature=0.0, system_prompt=system_prompt_text, user_prompt=user_prompt_text, context=context_text)
+
+            response_content = bedrock_response['output']['message']['content'][0]['text']
+            response_token = bedrock_response['usage']['totalTokens']
+            response_latency = bedrock_response['metrics']['latencyMs']
 
             st.write(response_content)
+            st.write(f"(Token count: {response_token} tokens, Latency: {response_latency}ms)")

@@ -8,7 +8,7 @@ def read_file(file_name):
 
 
 def get_context_list():
-    return ["Prompt engineering 기초", "요약", "질의응답", "번역", "리뷰 분석", "Prompt 최적화"]
+    return ["Prompt engineering 기초", "요약", "질의응답", "번역", "리뷰 분석", "Context 조정"]
 
 
 def get_context(lab):
@@ -21,9 +21,9 @@ def get_context(lab):
     elif lab == "리뷰 분석":
         return read_file("data/review_analysis.txt")
     elif lab == "번역":
+        return read_file("data/translation.txt")
+    elif lab == "Context 조정":
         return read_file("data/qa.txt")
-    elif lab == "Prompt 최적화":
-        return ""
 
 
 def get_prompt(template, context=None):
@@ -71,4 +71,4 @@ def get_text_response(model_id, temperature, system_prompt, user_prompt, context
         },
     )
     
-    return response['output']['message']['content'][0]['text']
+    return response
