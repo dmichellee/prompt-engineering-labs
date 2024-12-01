@@ -8,7 +8,7 @@ def read_file(file_name):
 
 
 def get_context_list():
-    return ["Prompt engineering 기초", "요약", "질의응답", "번역", "감정 분석", "코딩"]
+    return ["Prompt engineering 기초", "요약", "질의응답", "번역", "리뷰 분석", "Prompt 최적화"]
 
 
 def get_context(lab):
